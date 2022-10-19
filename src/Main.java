@@ -25,6 +25,14 @@ public class Main {
         System.out.println(isAvgWhole(array6));
         System.out.println(isAvgWhole(array7));
 
+        System.out.println("Задание 4");
+        int[] array8 = new int[] {1, 2, 3};
+        int[] array9 = new int[] {1, -2, 3};
+        int[] array10 = new int[] {3, 3, -2, 408, 3, 3};
+        System.out.println(Arrays.toString(cumulativeSum(array8)));
+        System.out.println(Arrays.toString(cumulativeSum(array9)));
+        System.out.println(Arrays.toString(cumulativeSum(array10)));
+
 
     }
     // повторение каждого символа в строке n раз
@@ -63,6 +71,16 @@ public class Main {
             sum += myArray[i];
         }
         return sum%numberOfElements == 0;
+    }
+    // возвращаем массив, в котором каждое целое число является суммой самого себя + всеех предыдущих чисел в исходном массиве
+    public static int[] cumulativeSum(int[] myArray){
+        int[] newArray = myArray.clone(); // создаём новый массив - копию исходного
+        int sum = 0;
+        for (int i = 0; i < myArray.length; i++){
+            newArray[i] += sum;
+            sum += myArray[i];
+        }
+        return newArray;
     }
 
 }
