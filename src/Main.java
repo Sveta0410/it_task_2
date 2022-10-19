@@ -33,6 +33,11 @@ public class Main {
         System.out.println(Arrays.toString(cumulativeSum(array9)));
         System.out.println(Arrays.toString(cumulativeSum(array10)));
 
+        System.out.println("Задание 5");
+        System.out.println(getDecimalPlaces("43.20"));
+        System.out.println(getDecimalPlaces("400"));
+        System.out.println(getDecimalPlaces("3.1"));
+
 
     }
     // повторение каждого символа в строке n раз
@@ -81,6 +86,16 @@ public class Main {
             sum += myArray[i];
         }
         return newArray;
+    }
+    // возвращаем число десятичных знаков, которое имеет число (заданное в виде строки)
+    public static int getDecimalPlaces(String number){
+        int index = number.indexOf('.');
+        if (index == -1){
+            return 0;
+        } else {
+            return number.length() - index - 1; // index - число символов до точки, 1 - сама точка
+        }
+
     }
 
 }
