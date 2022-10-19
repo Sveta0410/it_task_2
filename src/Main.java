@@ -16,8 +16,14 @@ public class Main {
         System.out.println("Задание 3");
         int[] array3 = new int[] {1, 3};
         int[] array4 = new int[] {1, 2, 3, 4};
+        int[] array5 = new int[] {1, 5, 6};
+        int[] array6 = new int[] {1, 1, 1};
+        int[] array7 = new int[] {9, 2, 2, 5};
         System.out.println(isAvgWhole(array3));
         System.out.println(isAvgWhole(array4));
+        System.out.println(isAvgWhole(array5));
+        System.out.println(isAvgWhole(array6));
+        System.out.println(isAvgWhole(array7));
 
 
     }
