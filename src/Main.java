@@ -140,6 +140,7 @@ public class Main {
     public static boolean isValid(String myString){
             return myString.matches("[0-9]{1,5}"); // регулярное выражение (цифры от 0 до 9, кол-во символов от 1 до 5)
     }
+    // первая буква 1й строки = последней букве 2й строки, первая буква 2й строки = последней букве 1й строки
     public static boolean isStrangePair(String s1, String s2){
         if (s1.isEmpty() || s2.isEmpty()){
             return s1.isEmpty() && s2.isEmpty();
