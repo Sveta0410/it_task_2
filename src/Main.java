@@ -60,8 +60,17 @@ public class Main {
         System.out.println(isStrangePair("", ""));
         System.out.println(isStrangePair("", "a"));
 
+        System.out.println("Задание 9");
+        System.out.println(isPrefix("automation", "auto-"));
+        System.out.println(isSuffix("arachnophobia", "-phobia"));
+        System.out.println(isPrefix("automation", "sub-"));
+        System.out.println(isSuffix("arachnophobia", "-x"));
 
-
+        System.out.println("Задание 10");
+        System.out.println(boxSeq(0));
+        System.out.println(boxSeq(1));
+        System.out.println(boxSeq(2));
+        System.out.println(boxSeq(6));
     }
     // повторение каждого символа в строке n раз
     public static String repeat(String word, int n){
@@ -146,6 +155,37 @@ public class Main {
             return s1.isEmpty() && s2.isEmpty();
         }
         return (s1.charAt(0) == s2.charAt(s2.length() - 1) && s2.charAt(0) == s1.charAt(s1.length() - 1));
+    }
+    // true, если начинается с префиксного аргумента. иначе false
+    public static boolean isPrefix(String word, String prefix){
+        if (prefix.charAt(prefix.length() - 1) != '-') {
+            return false;
+        } else {
+            prefix = prefix.substring(0, prefix.length() - 1);
+            return word.startsWith(prefix);
+        }
+    }
+    // true, если заканчивается аргуметном суффикса. иначе false
+    public static boolean isSuffix(String word, String suffix){
+        if (suffix.charAt(0) != '-') {
+            return false;
+        } else {
+            suffix = suffix.substring(1, suffix.length());
+            return word.endsWith(suffix);
+        }
+    }
+    // Принимаем число (шаг) и возвращаем количество полей на этом шаге последовательности (начинаем с 0 -> +3 -> -1)
+    public static int boxSeq(int step){
+        int result = 0; // на нечётном шаге прибавляем 3, на чётном вычитаем 1
+        if (step % 2 == 0) {
+            // если кол-во шагов чётное - мы step/2 раз прибавляем 3 и столько же раз вычитаем 1
+            // step/2 * 3 - step/2 = step/2 * 2
+            return step / 2 * 2;
+        } else {
+            // иначе мы (step + 1) / 2 раз прибавляем 3 и step / 2 раз вычитаем 1
+            return ((step + 1) / 2) * 3 - step / 2;
+        }
+
     }
 
 }
