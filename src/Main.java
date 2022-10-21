@@ -38,6 +38,24 @@ public class Main {
         System.out.println(getDecimalPlaces("400"));
         System.out.println(getDecimalPlaces("3.1"));
 
+        System.out.println("Задание 6");
+        System.out.println(fibonacci(3));
+        System.out.println(fibonacci(7));
+        System.out.println(fibonacci(12));
+        System.out.println(fibonacci(1));
+        System.out.println(fibonacci(0));
+
+        System.out.println("Задание 7");
+        System.out.println(isValid("59001"));
+        System.out.println(isValid("590a1"));
+        System.out.println(isValid("590  01"));
+        System.out.println(isValid("5977001"));
+        System.out.println(isValid("123456"));
+        System.out.println(isValid(""));
+        System.out.println(isValid("5 1"));
+
+
+
 
     }
     // повторение каждого символа в строке n раз
@@ -95,7 +113,27 @@ public class Main {
         } else {
             return number.length() - index - 1; // index - число символов до точки, 1 - сама точка
         }
+    }
+    // при заданном числе функция возвращает число Фибоначчи (0 1 1 2 3 5 8 13 21 ...)
+    public static int fibonacci(int number){
+        int n0 = 0;
+        int n1 = 1;
+        int temp; // temporary (временная/вспомогательная переменная)
 
+        if (number == 0){
+            return 0;
+        }
+
+        for (int i = 0; i < number; i++){
+            temp = n1;
+            n1 += n0;
+            n0 = temp;
+        }
+        return n1;
+    }
+    // проверить, действителен ли почтовый индекс (длина < 5, используются только цифры, нет пробелов)
+    public static boolean isValid(String myString){
+            return myString.matches("[0-9]{1,5}"); // регулярное выражение (цифры от 0 до 9, кол-во символов от 1 до 5)
     }
 
 }
