@@ -54,6 +54,11 @@ public class Main {
         System.out.println(isValid(""));
         System.out.println(isValid("5 1"));
 
+        System.out.println("Задание 8");
+        System.out.println(isStrangePair("sparkling", "groups"));
+        System.out.println(isStrangePair("blush", "hurbis"));
+        System.out.println(isStrangePair("", ""));
+        System.out.println(isStrangePair("", "a"));
 
 
 
@@ -134,6 +139,12 @@ public class Main {
     // проверить, действителен ли почтовый индекс (длина < 5, используются только цифры, нет пробелов)
     public static boolean isValid(String myString){
             return myString.matches("[0-9]{1,5}"); // регулярное выражение (цифры от 0 до 9, кол-во символов от 1 до 5)
+    }
+    public static boolean isStrangePair(String s1, String s2){
+        if (s1.isEmpty() || s2.isEmpty()){
+            return s1.isEmpty() && s2.isEmpty();
+        }
+        return (s1.charAt(0) == s2.charAt(s2.length() - 1) && s2.charAt(0) == s1.charAt(s1.length() - 1));
     }
 
 }
